@@ -13,8 +13,12 @@ export const authRoutes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'register',
+        path: 'new-account',
         component: RegisterComponent,
+      },
+      {
+        path: '**',
+        component: LoginComponent,
       },
     ],
   },
