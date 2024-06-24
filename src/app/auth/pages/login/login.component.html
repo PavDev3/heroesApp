@@ -1,23 +1,23 @@
 <div class="flex flex-column">
   <span class="text-lg mb-4"> Login </span>
   <p-floatLabel class="mt-4">
-    <input pInputText id="username" />
+    <input pInputText id="username" class="w-full" />
     <label for="username">Username</label>
   </p-floatLabel>
   <p-floatLabel class="mt-4">
-    <p-password>
-      <ng-template pTemplate="footer">
-        <p-divider />
-        <p class="mt-2">Suggestions</p>
-        <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-          <li>At least one lowercase</li>
-          <li>At least one uppercase</li>
-          <li>At least one numeric</li>
-          <li>Minimum 8 characters</li>
-        </ul>
-      </ng-template>
-    </p-password>
+    <p-password
+      id="password1"
+      type="password"
+      class="w-full"
+      [feedback]="false"
+      styleClass="p-password p-component p-inputwrapper p-input-icon-right"
+      [style]="{ width: '100%' }"
+      [inputStyle]="{ width: '100%' }"
+      [toggleMask]="true"
+    ></p-password>
+
     <label for="password">Password</label>
   </p-floatLabel>
-  <p-button class="mt-4" label="Login" />
+  <button pButton class="p-button-success mt-4" label="Login"></button>
+  <button pButton class="mt-4" label="Register"></button>
 </div>
