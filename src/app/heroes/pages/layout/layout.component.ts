@@ -19,7 +19,7 @@ export class LayoutComponent {
     },
     {
       label: 'Heroes',
-      icon: 'pi pi-fw pi-user',
+      icon: 'pi pi-fw pi-users',
       routerLink: '/heroes',
       items: [
         {
@@ -31,11 +31,6 @@ export class LayoutComponent {
           label: 'Add',
           icon: 'pi pi-fw pi-plus',
           routerLink: '/heroes/hew-hero',
-        },
-        {
-          label: 'Search',
-          icon: 'pi pi-fw pi-search',
-          routerLink: '/heroes/search',
         },
       ],
     },
