@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -14,6 +15,7 @@ import { PasswordModule } from 'primeng/password';
     PasswordModule,
     DividerModule,
     ButtonModule,
+    RouterLink,
   ],
 })
 export class LoginComponent {}

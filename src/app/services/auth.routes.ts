@@ -13,7 +13,7 @@ export const authRoutes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'new-account',
+        path: 'register',
         component: RegisterComponent,
       },
       {

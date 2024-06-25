@@ -1,1 +1,27 @@
-Esta es la pagina de registro
+<div class="flex flex-column">
+  <span class="text-lg mb-4"> Register </span>
+  <p-floatLabel class="mt-4">
+    <input pInputText id="username" class="w-full" />
+    <label for="username">Username</label>
+  </p-floatLabel>
+
+  <p-floatLabel class="mt-4">
+    <input pInputText id="surname" class="w-full" />
+    <label for="surname">Surname</label>
+  </p-floatLabel>
+  <p-floatLabel class="mt-4">
+    <input pInputText id="email" class="w-full" />
+    <label for="email">Email</label>
+  </p-floatLabel>
+
+  <button
+    pButton
+    class="mt-4"
+    label="Register"
+    routerLink="/auth/register"
+  ></button>
+
+  <div class="flex justify-content-end mt-5">
+    <a routerLink="/auth/login">Have account?</a>
+  </div>
+</div>
