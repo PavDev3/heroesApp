@@ -21,19 +21,23 @@ export class LayoutComponent {
       label: 'Heroes',
       icon: 'pi pi-fw pi-users',
       routerLink: '/heroes',
+      items: [
+        {
+          label: 'List',
+          icon: 'pi pi-fw pi-list',
+          routerLink: '/heroes',
+        },
+        {
+          label: 'Add',
+          icon: 'pi pi-fw pi-plus',
+          routerLink: '/heroes/hew-hero',
+        },
+      ],
     },
     {
       label: 'About',
       icon: 'pi pi-fw pi-info-circle',
       routerLink: '/about',
-    },
-  ];
-
-  login = [
-    {
-      label: 'Sign Out',
-      icon: 'pi pi-fw pi-sign-out',
-      routerLink: '/auth/login',
     },
   ];
 }
