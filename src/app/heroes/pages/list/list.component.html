@@ -1,5 +1,8 @@
-@for (hero of heroes; track hero ) {
-<ul>
-  <li>{{ hero.superhero }} {{ hero.publisher }}</li>
-</ul>
-}
+<h1>Lista de Heroes</h1>
+<hr />
+
+<div class="grid bm-8 pt-2">
+  <div class="col-12 sm:col-4 md:col-3 xl:col-2">
+    <hero-card [hero]="hero"></hero-card>
+  </div>
+</div>

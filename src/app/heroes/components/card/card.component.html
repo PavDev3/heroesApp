@@ -1,0 +1,15 @@
+@for (hero of hero; track hero ) {
+<div class="pt-2">
+  <p-card [header]="hero.superhero" [subheader]="hero.alter_ego">
+    <h4>{{ hero.publisher }}</h4>
+    <p>
+      <strong> Primera aparición</strong> {{ hero.first_appearance }}
+      <br />
+      @for (name of hero.characters.split(",")| slice:0:3 ; track name) {
+
+      <p-chip [label]="name"> </p-chip>
+      }
+    </p>
+  </p-card>
+</div>
+}
