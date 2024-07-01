@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { CardComponent } from '../../components/card/card.compoment';
+import { CardComponent } from '../../components/card/card.component';
 import { Hero } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 @Component({
