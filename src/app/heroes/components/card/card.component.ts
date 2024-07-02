@@ -23,7 +23,8 @@ import { Hero } from '../../interfaces/hero.interface';
   ],
 })
 export class CardComponent implements OnInit {
-  @Input() hero!: Hero[];
+  @Input() hero!: Hero;
+
   ngOnInit(): void {
     if (!this.hero) throw new Error('Hero is required');
   }
