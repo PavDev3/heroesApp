@@ -12,12 +12,22 @@
     </p>
     <p-divider> </p-divider>
     <ng-template pTemplate="footer">
-      <div>
+      <div class="text-center">
         <p-button
           label="Edit"
+          rounded="true"
           class="w-full"
           icon="pi pi-pencil"
           [routerLink]="['/heroes/edit', hero.id]"
+        ></p-button>
+
+        <p-button
+          label="More"
+          rounded="true"
+          class="w-full p-2"
+          severity="secondary"
+          icon="pi pi-ellipsis-h"
+          [routerLink]="['/heroes', hero.id]"
         ></p-button>
       </div>
     </ng-template>
