@@ -1,36 +1,41 @@
 @for (hero of hero; track hero ) {
-<div class="pt-2">
-  <p-card [header]="hero.superhero" [subheader]="hero.alter_ego">
-    <h4>{{ hero.publisher }}</h4>
-    <p>
-      <strong> Primera aparición</strong> {{ hero.first_appearance }}
-      <br />
-      @for (name of hero.characters.split(",")| slice:0:3 ; track name) {
+<p-card
+  [header]="hero.superhero"
+  [subheader]="hero.alter_ego"
+  [style]="{ width: '360px' }"
+>
+  <ng-template pTemplate="header">
+    <img [src]="hero | heroImage" [alt]="hero.alter_ego" />
+  </ng-template>
+  <h3>{{ hero.publisher }}</h3>
+  <p>
+    <strong> Primera aparición</strong> {{ hero.first_appearance }}
+    <br />
+    @for (name of hero.characters.split(",")| slice:0:3 ; track name) {
 
-      <p-chip [label]="name"> </p-chip>
-      }
-    </p>
-    <p-divider> </p-divider>
-    <ng-template pTemplate="footer">
-      <div class="text-center">
-        <p-button
-          label="Edit"
-          rounded="true"
-          class="w-full"
-          icon="pi pi-pencil"
-          [routerLink]="['/heroes/edit', hero.id]"
-        ></p-button>
+    <p-chip [label]="name"> </p-chip>
+    }
+  </p>
+  <p-divider> </p-divider>
+  <ng-template pTemplate="footer">
+    <div class="text-center">
+      <p-button
+        label="Edit"
+        rounded="true"
+        class="w-full"
+        icon="pi pi-pencil"
+        [routerLink]="['/heroes/edit', hero.id]"
+      ></p-button>
 
-        <p-button
-          label="More"
-          rounded="true"
-          class="w-full p-2"
-          severity="secondary"
-          icon="pi pi-ellipsis-h"
-          [routerLink]="['/heroes', hero.id]"
-        ></p-button>
-      </div>
-    </ng-template>
-  </p-card>
-</div>
+      <p-button
+        label="More"
+        rounded="true"
+        class="w-full p-2"
+        severity="secondary"
+        icon="pi pi-ellipsis-h"
+        [routerLink]="['/heroes', hero.id]"
+      ></p-button>
+    </div>
+  </ng-template>
+</p-card>
 }
