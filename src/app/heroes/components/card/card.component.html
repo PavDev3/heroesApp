@@ -10,6 +10,17 @@
       <p-chip [label]="name"> </p-chip>
       }
     </p>
+    <p-divider> </p-divider>
+    <ng-template pTemplate="footer">
+      <div>
+        <p-button
+          label="Edit"
+          class="w-full"
+          icon="pi pi-pencil"
+          [routerLink]="['/heroes/edit', hero.id]"
+        ></p-button>
+      </div>
+    </ng-template>
   </p-card>
 </div>
 }
