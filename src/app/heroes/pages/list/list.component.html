@@ -1,8 +1,8 @@
 <h1>List of Heroes</h1>
 <hr />
 
-@for (hero of hero ; track hero) {
 <div class="grid">
+  @for (hero of hero ; track hero) {
   <hero-card [hero]="hero"></hero-card>
+  }
 </div>
-}
