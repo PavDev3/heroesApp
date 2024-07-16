@@ -1,30 +1,35 @@
 <ng-template #isLoaded>
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <img [src]="hero! | heroImage" [alt]="hero?.superhero" />
+  <div class="p-grid p-align-center p-justify-center">
+    <div class="p-col-12 p-md-6">
+      <div class="p-card">
+        <div class="p-card-body">
+          <h3 class="text-center">{{ hero?.superhero }}</h3>
+          <img
+            [src]="hero! | heroImage"
+            [alt]="hero?.superhero"
+            class="hero-image"
+          />
+        </div>
       </div>
-      <div class="col-6">
-        <h3>{{ hero?.superhero }}</h3>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <b>Alter ego:</b> {{ hero?.alter_ego }}
-          </li>
-          <li class="list-group-item">
-            <b>Publisher:</b> {{ hero?.publisher }}
-          </li>
-          <li class="list-group-item">
-            <b>First appearance:</b> {{ hero?.first_appearance }}
-          </li>
-        </ul>
-        <h5>Characters</h5>
-        <p>{{ hero?.characters }}</p>
-        <p-button (click)="back()">Back</p-button>
+    </div>
+    <div class="p-col-12 p-md-6">
+      <div class="p-card">
+        <div class="p-card-body">
+          <ul class="p-list p-list-striped">
+            <li class="p-list-item"><b>Alter ego:</b> {{ hero?.alter_ego }}</li>
+            <li class="p-list-item"><b>Publisher:</b> {{ hero?.publisher }}</li>
+            <li class="p-list-item">
+              <b>First appearance:</b> {{ hero?.first_appearance }}
+            </li>
+          </ul>
+          <h5>Characters</h5>
+          <p>{{ hero?.characters }}</p>
+          <p-button (click)="back()">Back</p-button>
+        </div>
       </div>
     </div>
   </div>
 </ng-template>
-
 <ng-template #isLoading>
   <div class="card flex justify-content-center">
     <p-progressSpinner ariaLabel="loading" />

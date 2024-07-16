@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { delay, switchMap } from 'rxjs';
 import { HeroImagePipe } from '../../../pipes/heroImage.pipe';
@@ -12,7 +13,13 @@ import { HeroesService } from '../../services/heroes.service';
   standalone: true,
   selector: 'HeroePage',
   templateUrl: './heroe.component.html',
-  imports: [CommonModule, ProgressSpinnerModule, HeroImagePipe, ButtonModule],
+  imports: [
+    CommonModule,
+    ProgressSpinnerModule,
+    HeroImagePipe,
+    ButtonModule,
+    CardModule,
+  ],
 })
 export class HeroePage implements OnInit {
   back() {
