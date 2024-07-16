@@ -1,1 +1,39 @@
-Aquí iría el heroe
+<ng-template #isLoaded>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <img [src]="hero! | heroImage" [alt]="hero?.superhero" />
+      </div>
+      <div class="col-6">
+        <h3>{{ hero?.superhero }}</h3>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <b>Alter ego:</b> {{ hero?.alter_ego }}
+          </li>
+          <li class="list-group-item">
+            <b>Publisher:</b> {{ hero?.publisher }}
+          </li>
+          <li class="list-group-item">
+            <b>First appearance:</b> {{ hero?.first_appearance }}
+          </li>
+        </ul>
+        <h5>Characters</h5>
+        <p>{{ hero?.characters }}</p>
+        <p-button (click)="back()">Back</p-button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #isLoading>
+  <div class="card flex justify-content-center">
+    <p-progressSpinner ariaLabel="loading" />
+  </div>
+</ng-template>
+
+<div>
+  @if (hero) { <ng-container *ngTemplateOutlet="isLoaded"></ng-container> }
+  @else {
+  <ng-container *ngTemplateOutlet="isLoading"></ng-container>
+  }
+</div>
