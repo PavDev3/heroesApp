@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import { debounceTime, switchMap } from 'rxjs';
 import { Hero } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -20,22 +19,24 @@ export class SearchPage {
   public searchInput = new FormControl('');
 
   public suggestions: Hero[] = [];
+  public filteredSuggestions: Hero[] = [];
 
   constructor(private heroesService: HeroesService) {
-    this.searchInput.valueChanges
-      .pipe(
-        debounceTime(300),
-        switchMap((value) => this.heroesService.getSuggestions(value!))
-      )
-      .subscribe((heroes) => {
-        this.suggestions = heroes;
-      });
+    this.heroesService.getHeroes().subscribe((heroes) => {
+      this.suggestions = heroes;
+    });
   }
 
   filterHero(event: AutoCompleteCompleteEvent) {
+    const filtered: Hero[] = [];
     const query = event.query;
-    this.heroesService.getSuggestions(query).subscribe((heroes) => {
-      this.suggestions = heroes;
-    });
+
+    for (let i = 0; i < this.suggestions.length; i++) {
+      const hero = this.suggestions[i];
+      if (hero.superhero.toLowerCase().includes(query.toLowerCase())) {
+        filtered.push(hero);
+      }
+    }
+    this.filteredSuggestions = filtered;
   }
 }

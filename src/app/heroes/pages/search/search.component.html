@@ -1,7 +1,7 @@
 <div class="card flex justify-content-center">
   <p-autoComplete
     [formControl]="searchInput"
-    [suggestions]="suggestions"
+    [suggestions]="filteredSuggestions"
     (completeMethod)="filterHero($event)"
     field="superhero"
   />
