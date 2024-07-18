@@ -1,6 +1,9 @@
 <p-menubar [model]="items">
   <ng-template pTemplate="end">
     <div class="flex align-items-center gap-2">
+      <div class="card flex justify-content-center">
+        <p-autoComplete />
+      </div>
       <p-button
         severity="secondary"
         icon="pi pi-sign-out"

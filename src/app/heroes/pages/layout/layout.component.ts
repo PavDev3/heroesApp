@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
@@ -7,7 +8,13 @@ import { SidebarModule } from 'primeng/sidebar';
   standalone: true,
   selector: 'layout',
   templateUrl: './layout.component.html',
-  imports: [RouterOutlet, SidebarModule, ButtonModule, MenubarModule],
+  imports: [
+    RouterOutlet,
+    SidebarModule,
+    ButtonModule,
+    MenubarModule,
+    AutoCompleteModule,
+  ],
 })
 export class LayoutComponent {
   sidebarVisible: boolean = false;
