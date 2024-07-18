@@ -1,5 +1,10 @@
 <div class="card flex justify-content-center">
-  <p-autoComplete [formControl]="searchInput" />
+  <p-autoComplete
+    [formControl]="searchInput"
+    [suggestions]="suggestions"
+    (completeMethod)="filterHero($event)"
+    field="superhero"
+  />
 </div>
 
 {{ searchInput.value | json }}
