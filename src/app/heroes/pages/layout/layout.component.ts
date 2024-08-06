@@ -4,6 +4,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
+import { SearchPage } from '../search/search.component';
 @Component({
   standalone: true,
   selector: 'layout',
@@ -14,6 +15,7 @@ import { SidebarModule } from 'primeng/sidebar';
     ButtonModule,
     MenubarModule,
     AutoCompleteModule,
+    SearchPage,
   ],
 })
 export class LayoutComponent {
