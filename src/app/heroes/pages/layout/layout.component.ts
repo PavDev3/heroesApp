@@ -39,7 +39,7 @@ export class LayoutComponent {
         {
           label: 'Add',
           icon: 'pi pi-fw pi-plus',
-          routerLink: '/heroes/hew-hero',
+          routerLink: '/heroes/new-hero',
         },
       ],
     },

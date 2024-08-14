@@ -1,1 +1,87 @@
-Esta es la pagina de nuevo Heroe
+<h1>Heroe</h1>
+
+<small>Superman</small>
+
+<p-divider />
+<p-card header="Formulario de Personajes">
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <div class="p-fluid p-grid">
+      <div class="p-col-12 p-sm-6">
+        <div class="p-field">
+          <label for="superHero">Super Hero</label>
+          <input
+            id="superHero"
+            type="text"
+            pInputText
+            formControlName="superHero"
+          />
+          <div class="p-field">
+            <label for="alterEgo">Alter Ego</label>
+            <input
+              id="alterEgo"
+              type="text"
+              pInputText
+              formControlName="alterEgo"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="p-col-12 p-sm-6"></div>
+      <div class="p-col-12">
+        <div class="p-field">
+          <label for="aparicion">Aparición</label>
+          <input
+            id="aparicion"
+            type="text"
+            pInputText
+            formControlName="aparición"
+          />
+        </div>
+      </div>
+      <div class="p-col-12">
+        <div class="p-field">
+          <label for="personaje">Personaje</label>
+          <input
+            id="personaje"
+            type="text"
+            pInputText
+            formControlName="personaje"
+          />
+        </div>
+      </div>
+      <div class="p-col-12">
+        <div class="p-field">
+          <label for="publisher">Publisher</label>
+          <p-dropdown
+            [options]="publishers"
+            optionLabel="name"
+            formControlName="publisher"
+            placeholder="Selecciona un Publisher"
+          ></p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-content-between">
+      <div
+        class="flex align-items-center justify-content-center font-bold border-round m-2"
+      >
+        <button
+          pButton
+          class="p-button-secondary"
+          type="reset"
+          label="Limpiar"
+        ></button>
+      </div>
+      <div
+        class="flex align-items-center justify-content-end font-bold border-round m-2"
+      >
+        <button
+          pButton
+          class="p-button-success"
+          type="submit"
+          label="Enviar"
+        ></button>
+      </div>
+    </div>
+  </form>
+</p-card>
