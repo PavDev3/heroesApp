@@ -1,4 +1,5 @@
 export interface Hero {
+  appearance: any;
   id: string;
   superhero: string;
   publisher: Publisher;

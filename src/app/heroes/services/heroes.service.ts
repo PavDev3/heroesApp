@@ -26,4 +26,8 @@ export class HeroesService {
     }
     return this.http.get<Hero[]>(`${this.baseUrl}/heroes?super=${query}`);
   }
+
+  updateHero(id: number, hero: Hero): Observable<Hero> {
+    return this.http.put<Hero>(`${this.baseUrl}/heroes/${id}`, hero);
+  }
 }

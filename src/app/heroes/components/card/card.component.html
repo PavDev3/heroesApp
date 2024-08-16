@@ -3,11 +3,15 @@
     [header]="hero.superhero"
     [subheader]="hero.alter_ego"
     [style]="{ width: '360px' }"
+    [routerLink]="['/heroes', hero.id]"
+    class="hover-link"
   >
     <ng-template pTemplate="header">
       <img [src]="hero | heroImage" [alt]="hero.alter_ego" />
     </ng-template>
-    <h3>{{ hero.publisher }}</h3>
+    <h3>
+      {{ hero.publisher }}
+    </h3>
     <p>
       <strong> First appearance:</strong> {{ hero.first_appearance }}
       <br />

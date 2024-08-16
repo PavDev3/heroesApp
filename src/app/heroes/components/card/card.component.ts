@@ -21,6 +21,15 @@ import { Hero } from '../../interfaces/hero.interface';
     RouterLink,
     HeroImagePipe,
   ],
+  styles: [
+    `
+      .hover-link {
+        cursor: pointer;
+        color: inherit;
+        text-decoration: none;
+      }
+    `,
+  ],
 })
 export class CardComponent implements OnInit {
   @Input() hero!: Hero;

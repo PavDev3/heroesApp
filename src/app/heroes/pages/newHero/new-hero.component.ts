@@ -1,12 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 
+import { ActivatedRoute } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   standalone: true,
@@ -22,7 +29,7 @@ import { DropdownModule } from 'primeng/dropdown';
     CardModule,
   ],
 })
-export class NewHeroPage {
+export class NewHeroPage implements OnInit {
   characterForm: FormGroup;
 
   public publishers = [
@@ -31,20 +38,48 @@ export class NewHeroPage {
       id: 'DC Comics',
     },
     {
-      name: 'Marvel Comics',
+      name: 'Marvel',
       id: 'Marvel Comics',
     },
   ];
-  constructor(private fb: FormBuilder) {
+
+  heroId: number | undefined;
+
+  constructor(
+    private fb: FormBuilder,
+    private heroesService: HeroesService,
+    private route: ActivatedRoute
+  ) {
     this.characterForm = this.fb.group({
-      superHero: [''],
+      superHero: ['', Validators.required],
       alterEgo: [''],
-      aparición: [''],
+      aparición: ['', Validators.required],
       personaje: [''],
       publisher: [null],
     });
   }
   onSubmit() {
     console.log(this.characterForm.value);
+  }
+
+  ngOnInit() {
+    this.heroId = this.route.snapshot.params['id'];
+    if (this.heroId) {
+      this.loadHeroData(this.heroId);
+    }
+  }
+
+  loadHeroData(id: number) {
+    this.heroesService.getHeroesById(id).subscribe((hero) => {
+      if (hero) {
+        this.characterForm.patchValue({
+          superHero: hero.superhero,
+          alterEgo: hero.alter_ego,
+          aparición: hero.first_appearance,
+          personaje: hero.characters,
+          publisher: hero.publisher,
+        });
+      }
+    });
   }
 }
