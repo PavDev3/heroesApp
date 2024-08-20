@@ -10,7 +10,7 @@ Proyecto personal para adjuntar en un Portafolios
 1. Clonar el proyecto
 2. Ejecutar ``` npm install ```
 3. Levantar el backend con ``` npm run backend ```
-4. Levantar el proyecto con ``` ng serve ```
+4. Levantar el proyecto con ``` npx nx serve ```
 
 
 
