@@ -1,6 +1,6 @@
 # HeroesApp
 
-Aplicación creada con Angular 17.5 para practicas de un CRUD y poder adaptar el lenguaje a standalone
+Aplicación creada con Angular 18 para practicas de un CRUD y poder adaptar el lenguaje a standalone
 Dicho proyecto esta creado con PrimeNG  
 
 Proyecto personal para adjuntar en un Portafolios

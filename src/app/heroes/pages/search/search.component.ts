@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import {
   AutoCompleteModule,
   AutoCompleteSelectEvent,
@@ -19,16 +20,18 @@ interface AutoCompleteCompleteEvent {
   imports: [AutoCompleteModule, ReactiveFormsModule, CommonModule],
 })
 export class SearchPage {
-  router: any;
   onSelect(event: AutoCompleteSelectEvent) {
     if (!event.value) {
       this.selectedHero = undefined;
+
       return;
     }
-    const hero: Hero = event.value.superhero;
+    const hero: Hero = event.value;
     this.searchInput.setValue(hero.superhero);
     this.selectedHero = hero;
-    this.router.navigateByUrl(`/heroes/${hero.id}`);
+    const heroId = hero.id;
+
+    this.router.navigateByUrl(`/heroes/${heroId}`);
   }
   public searchInput = new FormControl('');
 
@@ -36,7 +39,7 @@ export class SearchPage {
   public filteredSuggestions: Hero[] = [];
   public selectedHero: Hero | undefined;
 
-  constructor(private heroesService: HeroesService) {
+  constructor(private heroesService: HeroesService, private router: Router) {
     this.heroesService.getHeroes().subscribe((heroes) => {
       this.suggestions = heroes;
     });
@@ -48,7 +51,7 @@ export class SearchPage {
 
     for (let i = 0; i < this.suggestions.length; i++) {
       const hero = this.suggestions[i];
-      if (hero.superhero.toLowerCase().includes(query.toLowerCase())) {
+      if (hero.id.toLowerCase().includes(query.toLowerCase())) {
         filtered.push(hero);
       }
     }

@@ -3,6 +3,7 @@
     (onSelect)="onSelect($event)"
     [formControl]="searchInput"
     [suggestions]="filteredSuggestions"
+    (onSelect)="onSelect($event)"
     (completeMethod)="filterHero($event)"
     field="superhero"
   />
