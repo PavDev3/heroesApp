@@ -1,7 +1,7 @@
-<h1>Heroe</h1>
+<h1>New/Edit Hero</h1>
 
 <p-divider />
-<p-card header="Formulario de Personajes">
+<p-card header="Hero info">
   <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
     <div class="p-fluid p-grid">
       <div class="p-col-12 p-sm-6">
@@ -27,7 +27,7 @@
       <div class="p-col-12 p-sm-6"></div>
       <div class="p-col-12">
         <div class="p-field">
-          <label for="aparicion">Aparición</label>
+          <label for="first_appearance">First appearance</label>
           <input
             id="aparicion"
             type="text"
@@ -38,7 +38,7 @@
       </div>
       <div class="p-col-12">
         <div class="p-field">
-          <label for="personaje">Personaje</label>
+          <label for="characters">Characters</label>
           <input
             id="personaje"
             type="text"
@@ -54,7 +54,7 @@
             [options]="publishers"
             optionLabel="name"
             formControlName="publisher"
-            placeholder="Selecciona un Publisher"
+            placeholder="Select Publisher"
           ></p-dropdown>
         </div>
       </div>
@@ -67,7 +67,7 @@
           pButton
           class="p-button-secondary"
           type="reset"
-          label="Limpiar"
+          label="Clear"
         ></button>
       </div>
       <div
@@ -77,7 +77,7 @@
           pButton
           class="p-button-success"
           type="submit"
-          label="Enviar"
+          label="Save"
         ></button>
       </div>
     </div>

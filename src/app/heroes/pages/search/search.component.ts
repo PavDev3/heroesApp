@@ -20,6 +20,12 @@ interface AutoCompleteCompleteEvent {
   imports: [AutoCompleteModule, ReactiveFormsModule, CommonModule],
 })
 export class SearchPage {
+  constructor(private heroesService: HeroesService, private router: Router) {
+    this.heroesService.getHeroes().subscribe((heroes) => {
+      this.suggestions = heroes;
+    });
+  }
+
   onSelect(event: AutoCompleteSelectEvent) {
     if (!event.value) {
       this.selectedHero = undefined;
@@ -38,12 +44,6 @@ export class SearchPage {
   public suggestions: Hero[] = [];
   public filteredSuggestions: Hero[] = [];
   public selectedHero: Hero | undefined;
-
-  constructor(private heroesService: HeroesService, private router: Router) {
-    this.heroesService.getHeroes().subscribe((heroes) => {
-      this.suggestions = heroes;
-    });
-  }
 
   filterHero(event: AutoCompleteCompleteEvent) {
     const filtered: Hero[] = [];
