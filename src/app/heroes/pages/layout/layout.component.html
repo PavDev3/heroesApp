@@ -4,11 +4,12 @@
       <div class="card flex justify-content-center">
         <search-page />
       </div>
+      <span> <i class="pi pi-user"></i> Hola, {{ currentUser?.user }} </span>
       <p-button
         severity="secondary"
         icon="pi pi-sign-out"
         label="Logout"
-        routerLink="/auth/login"
+        (click)="onLogout()"
       ></p-button>
     </div>
   </ng-template>

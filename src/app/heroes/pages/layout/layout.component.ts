@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
+import { User } from '../../../auth/interfaces/user.interface';
 import { SearchPage } from '../search/search.component';
+import { AuthService } from './../../../auth/services/auth.services';
 @Component({
   standalone: true,
   selector: 'layout',
@@ -19,6 +21,18 @@ import { SearchPage } from '../search/search.component';
   ],
 })
 export class LayoutComponent {
+  readonly AuthService = inject(AuthService);
+  readonly router = inject(Router);
+
+  get currentUser(): User | undefined {
+    return this.AuthService.currentUser;
+  }
+
+  onLogout() {
+    this.AuthService.logout();
+    this.router.navigate(['/auth/login']);
+  }
+
   sidebarVisible: boolean = false;
 
   items = [
