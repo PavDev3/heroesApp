@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { tap } from 'rxjs';
 import { environment } from '../../../environments/environments';
 import { User } from '../interfaces/user.interface';
 
@@ -20,5 +21,18 @@ export class AuthService {
       return this.user;
     }
     return undefined;
+  }
+
+  login(email: string, password: string) {
+    // return this.http.post<User>(`${this.baseUrl}/auth/login`, {
+    //   email,
+    //   password,
+    // });
+
+    return this.http.get<User>(`${this.baseUrl}/users/1`).pipe(
+      tap((res) => {
+        this.user = res;
+      })
+    );
   }
 }
