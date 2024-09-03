@@ -24,9 +24,7 @@ export class AuthService {
     // http.post('login',{ email, password });
     return this.http.get<User>(`${this.baseUrl}/users/1`).pipe(
       tap((user) => (this.user = user)),
-      tap((user) =>
-        localStorage.setItem('token', 'aASDgjhasda.asdasd.aadsf123k')
-      )
+      tap((user) => localStorage.setItem('token', 'tokendeprueba.123'))
     );
   }
 
