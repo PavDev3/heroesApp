@@ -16,7 +16,7 @@
 
 - 👨‍💻 All of my projects are available at [https://github.com/PavDev3](https://github.com/PavDev3)
 
-- 💬 Ask me about **Angular Jr**
+- 💬 Ask me about **Angular**
 
 - 📫 How to reach me **pnunfe@gmail.com**
 
