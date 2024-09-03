@@ -5,7 +5,7 @@ import { DividerModule } from 'primeng/divider';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
-import { AuthService } from '../../services/auth.services';
+import { AuthService } from '../../services/auth.service';
 @Component({
   standalone: true,
   selector: 'login ',
@@ -23,9 +23,8 @@ export class LoginComponent {
   readonly authService = inject(AuthService);
   readonly router = inject(Router);
 
-  onLogin() {
-    this.authService.login('', '').subscribe((user) => {
-      console.log('Usuario logueado ', user);
+  onLogin(): void {
+    this.authService.login('email@gmail.com', '123456').subscribe((user) => {
       this.router.navigate(['/']);
     });
   }

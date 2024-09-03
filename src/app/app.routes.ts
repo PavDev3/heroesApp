@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './shared/pages/no-found/not-found.component';
 
 export const routes: Routes = [
@@ -16,6 +17,8 @@ export const routes: Routes = [
     path: 'heroes',
     loadChildren: () =>
       import('./services/heroes.routes').then((m) => m.heroesRoutes),
+    canActivate: [AuthGuard],
+    canMatch: [AuthGuard],
   },
 
   {

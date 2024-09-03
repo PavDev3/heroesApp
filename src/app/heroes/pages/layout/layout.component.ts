@@ -5,8 +5,8 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { SidebarModule } from 'primeng/sidebar';
 import { User } from '../../../auth/interfaces/user.interface';
+import { AuthService } from '../../../auth/services/auth.service';
 import { SearchPage } from '../search/search.component';
-import { AuthService } from './../../../auth/services/auth.services';
 @Component({
   standalone: true,
   selector: 'layout',
