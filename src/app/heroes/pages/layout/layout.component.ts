@@ -30,6 +30,7 @@ export class LayoutComponent {
 
   onLogout() {
     this.AuthService.logout();
+
     this.router.navigate(['/auth/login']);
   }
 

@@ -4,7 +4,12 @@
       <div class="card flex justify-content-center">
         <search-page />
       </div>
-      <span> <i class="pi pi-user"></i> Hola, {{ currentUser?.user }} </span>
+      @if (currentUser) {
+      <span> <i class="pi pi-user"></i> Hola, {{ currentUser.user }} </span>
+      } @else {
+      <span> <i class="pi pi-user"></i> Hola, Invitado </span>
+      }
+
       <p-button
         severity="secondary"
         icon="pi pi-sign-out"
