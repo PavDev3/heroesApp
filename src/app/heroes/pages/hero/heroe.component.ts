@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
@@ -19,6 +19,7 @@ import { HeroesService } from '../../services/heroes.service';
     HeroImagePipe,
     ButtonModule,
     CardModule,
+    RouterLink,
   ],
 })
 export class HeroePage implements OnInit {
